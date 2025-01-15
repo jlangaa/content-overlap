@@ -33,17 +33,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r dat read}
 dat.raw <-
   readxl::read_excel(
-    "../data/Article Coding Sheet 2023-06-20.xlsx",
-    sheet = "Symptom Coding",
-    range = "C5:J100",
+    "../data/Expert Symptom Coding.xlsx",
+    sheet = "Symptom coding",
+    range = "A2:M90",
     col_names = TRUE
   ) %>%
-  filter(!is.na(`Long Description`))%>%
-  select(-2)%>%
-  mutate(S = paste0("S",1:nrow(.)))
+  filter(!is.na(Symptom))%>%
+  # select(-2)%>%
+  rename(S= `Symptom Label`) %>%
+  select(-`Symptom Number`)
 
 dat.binary  <- dat.raw %>%
-  select(-`Long Description`, -S) %>%
+  filter(is.na(DSMDx)) %>%
+  select(-Symptom, -S, -DSMDx) %>%
   mutate(across(everything(), ~if_else(.x == 0,0,1)))
 ```
 
@@ -107,7 +109,8 @@ ggcorrplot::ggcorrplot(
 
 ```{r}
 dat.plot <- dat.raw  %>%
-  select(-`Long Description`) %>%
+  filter(is.na(DSMDx)) %>%
+  select(-Symptom, -DSMDx) %>%
   pivot_longer(
     cols = -S,
     names_to = "Scale",
@@ -162,7 +165,7 @@ p <-
   ylab("") +
   # Generate the grid lines
   geom_hline(
-    yintercept = 1:6,
+    yintercept = 1:9,
     colour = "grey80",
     linewidth = .2
   ) +
@@ -199,12 +202,12 @@ p <-
   ) +
   labs(fill = "") + # remove legend title
   scale_y_continuous(
-    limits = c(-4, 6),
+    limits = c(-4, 9),
     expand = c(0, 0),
     breaks = 1:length(measures),
     labels = measures
-  ) +
-  scale_color_manual(values = pal1)
+  ) 
+  # scale_color_manual(values = pal1)
 p
 # ggsave("../output/CORAM_Figure1.png",p,width = 60,height=40,units='cm',dpi=300,scale=.35)
 ```
@@ -215,8 +218,8 @@ Symptom Key
 
 ```{r}
 dat.raw %>%
-  select(S, `Long Description`, everything()) %>%
-  print(n = 60)
+  select(S, Symptom, everything()) %>%
+  print(n = 60) #%>%
   # write.csv("../output/Symptom Key.csv")
 ```
 

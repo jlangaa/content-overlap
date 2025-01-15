@@ -1,0 +1,99 @@
+"","S","Symptom","DSMDx","Raga-16","R-MOAS","RPQ","NCBRF","ARI","CBC/PGBI AIR","CBCL Aggression Subscale","BPAQ","IA Diary"
+"1","S1","Gets mad/upset easily",NA,2,0,2,2,1,0,0,1,0
+"2","S2","Gets angry if told no",NA,2,0,2,0,1,0,0,1,0
+"3","S3","Has a short temper",NA,2,0,0,0,2,2,2,2,0
+"4","S4","Temper tantrums",NA,0,0,2,2,0,2,2,0,0
+"5","S5","Overreacts/ has trouble controlling feelings",NA,2,0,1,1,1,0,0,2,0
+"6","S6","Has periods of rage",NA,2,0,0,0,0,0,0,0,0
+"7","S7","Argues with parents/caregivers/ peers",NA,2,0,0,2,0,2,2,2,2
+"8","S8","Curses",NA,2,2,1,0,0,0,0,0,2
+"9","S9","Yells/ Screams",NA,2,2,2,0,0,1,2,0,2
+"10","S10","Threatens others kids/ adults",NA,2,2,2,2,0,2,2,2,2
+"11","S11","Breaks things when angry",NA,2,2,2,2,0,2,2,2,1
+"12","S12","Breaks own things",NA,0,0,0,0,0,2,2,0,0
+"13","S13","Gets into fights",NA,2,0,2,2,0,2,2,2,2
+"14","S14","Hurts other kids/ adults when uspet/ mad",NA,2,2,1,2,0,2,2,2,2
+"15","S15","Hurt others in self defense",NA,0,0,0,2,0,0,0,2,0
+"16","S16","Hurting themselves",NA,0,2,0,2,0,0,0,0,2
+"17","S17","Taken things from others/ stealing",NA,0,0,2,2,0,0,0,0,0
+"18","S18","Defiant/ Disobedient",NA,0,0,0,2,0,0,2,0,0
+"19","S19","Lying or cheating",NA,0,0,0,2,0,0,0,0,0
+"20","S20","Exacerbates abilities or achievements",NA,0,0,0,2,0,0,0,0,0
+"21","S21","Runs away",NA,0,0,0,2,0,0,0,0,0
+"22","S22","Stubborn, has to do things own way",NA,0,0,0,2,0,0,2,0,0
+"23","S23","Cruel or mean to others",NA,0,0,0,2,0,2,2,0,0
+"24","S24","Threatens to harm self",NA,0,0,0,2,0,0,0,0,0
+"25","S25","Felt better after hitting or yelling at someone",NA,0,0,2,0,0,0,0,0,0
+"26","S26","Easily annoyed by others",NA,0,0,0,1,2,0,1,1,0
+"27","S27","Impulsive or acts without thinking",NA,0,0,0,0,0,2,0,0,0
+"28","S28","Demands a lot of attention",NA,0,0,0,0,0,0,2,0,0
+"29","S29","Sulks a lot",NA,0,0,0,0,0,0,2,0,0
+"30","S30","Suspicious",NA,0,0,0,0,0,0,2,0,0
+"31","S31","Mood changes",NA,0,0,0,2,0,0,2,0,0
+"32","S32","Jealousy",NA,0,0,0,0,0,0,0,2,0
+"33","S33","Feeling like a victim",NA,0,0,0,0,0,0,0,2,0
+"34","S34","No guilt",NA,0,0,0,2,0,0,0,0,0
+"35","S35","Fire setting",NA,0,1,0,0,0,0,0,0,0
+"36","S36","Carried a weapon",NA,0,0,2,0,0,0,0,0,0
+"37","S37","Gotten others to gang up on someome else",NA,0,0,2,0,0,0,0,0,0
+"38","S38","Often loses temper","ODD",2,1,1,1,2,1,1,1,0
+"39","S39","Is often touchy or easily annoyed","ODD",1,0,0,1,2,0,0,1,0
+"40","S40","Is often angry and resentful","ODD",1,1,1,1,1,0,0,1,0
+"41","S41","Often argues with authority figures or, for child and adolescents, with adults","ODD",2,0,0,2,0,1,1,1,1
+"42","S42","Often actively defies or refuses to comply with requests from authority figures","ODD",0,0,0,2,0,0,2,0,0
+"43","S43","Often delibrately annoys others","ODD",0,0,0,1,0,1,1,0,0
+"44","S44","Often blames others for his or her mistakes or behaviors","ODD",0,0,0,0,0,0,0,0,0
+"45","S45","Has been spiteful or vindictive at least twice in the past 6 months","ODD",0,0,0,0,0,0,0,0,0
+"46","S46","Often bullies, threatens, or intimidates others","Conduct disorder",1,1,2,1,0,1,1,1,1
+"47","S47","Often intiates physical fights","Conduct disorder",2,1,1,1,0,1,1,1,1
+"48","S48","Has used a weapon that can cause serious physical harm to others (i.e., a bat, brick, broken bottle, knife, gun)","Conduct disorder",0,1,1,0,0,0,0,0,0
+"49","S49","Has been physically cruel to people","Conduct disorder",1,2,1,1,0,1,1,1,1
+"50","S50","Has been physically cruel to animals","Conduct disorder",0,0,0,0,0,0,0,0,0
+"51","S51","Has stolen while confronting a victim (i.e., mugging, purse snatching, extortion, armed robbery","Conduct disorder",0,0,2,1,0,0,0,0,0
+"52","S52","Has forced someone into sexual activity","Conduct disorder",0,0,0,0,0,0,0,0,0
+"53","S53","Has deliberately engaged in fire setting with the intention of causing serious damage","Conduct disorder",0,1,0,0,0,0,0,0,0
+"54","S54","Has deliberately destroyed others' propert (other than by fire setting)","Conduct disorder",1,2,2,1,0,2,1,1,1
+"55","S55","Has broken into someone else's house, building, or car","Conduct disorder",0,0,0,0,0,0,0,0,0
+"56","S56","Often lies to obtain goods or favors or to avoid obligations (i.e., ""cons"" others)","Conduct disorder",0,0,0,1,0,0,0,0,0
+"57","S57","Has stolen items of nontrival value without confronting a victim (i.e., shoplifting, but without breaking and entering, forgery)","Conduct disorder",0,0,1,1,0,0,0,0,0
+"58","S58","Often stays out at night despire parental prohibitions, beginning before age 13 years","Conduct disorder",0,0,0,0,0,0,0,0,0
+"59","S59","Has run away from home overnight at least twice while a parental or parental surrogate home (or once without returning for a lengthy period)","Conduct disorder",0,0,0,1,0,0,0,0,0
+"60","S60","Is often truant from school, beginning before the age 13 years","Conduct disorder",0,0,0,0,0,0,0,0,0
+"61","S61","Verbal aggression (i.e., temper tantrums, tirades, verbal arguments or fights) or physical aggression toward property, animals, or other individuals, occurring 
+twice weekly, on average, for a period of 3 months. The physical aggression does not result in damage or destruction of property and does not result in physical 
+injury to animals or other individuals","IED",1,1,1,1,1,1,1,1,1
+"62","S62","Three behavioral outbursts involving damage or destruction of property and/or physical assault involving physical injury against animals or other individuals 
+occurring within a 12-month period.","IED",1,2,0,0,0,0,0,0,0
+"63","S63","Often fails to give close attention to details or makes careless mistakes in schoolwork, at work, or during other activities, (i.e, overlooks or misses details, 
+work is inaccurate)","ADHD",0,0,0,0,0,0,0,0,0
+"64","S64","Often has difficulty sustaining attention tasks or play activities (i.e., has difficulty remaining focused during lectures, conversations, or lengthy reading)","ADHD",0,0,0,0,0,0,0,0,0
+"65","S65","Often does not seem to listen when spoken to directly (i.e., mind seems elsewhere, even in the absence of obvious distraction)","ADHD",0,0,0,0,0,0,0,0,0
+"66","S66","Often does not follow through on instructions and fails to finish schoolwork, chores, or duties in the workplace (i.e., starts tasks, but quickly loses focus and 
+is easily sidetracked).","ADHD",0,0,0,0,0,0,0,0,0
+"67","S67","Often has difficulty organizing tasks and activities (i.e., difficulty managing sequential tasks, difficulty keeping materials and belongings in order, messy, 
+disorganized, has poor time management, fails to meet deadlines).","ADHD",0,0,0,0,0,0,0,0,0
+"68","S68","Often avoids, dislikes, or is reluctant to engage in tasks that require sustained mental effort (i.e., school or homework, preparing reports, completing forms 
+reviewing lengthy papers","ADHD",0,0,0,0,0,0,0,0,0
+"69","S69","Often loses things necessary for tasks or activities(i.e., school materials, pencils, books, tools, wallets, keys, paperwork, eyeglasses, mobile telephone).","ADHD",0,0,0,0,0,0,0,0,0
+"70","S70","Is often distracted by extraneous stimuli (for older children, may include unrelated thoughts)","ADHD",0,0,0,0,0,0,0,0,0
+"71","S71","Is often forgetful in daily activities (i.e., doing chores, running errands, returning calls, paying bills, keeping appointments)","ADHD",0,0,0,0,0,0,0,0,0
+"72","S72","Often fidgets with or taps hands or feet or squirms in seat","ADHD",0,0,0,0,0,0,0,0,0
+"73","S73","Often leaves seat in situations when remaining in seat is expected (i.e., leaves his or her place in the classroom, in the office or other workplace, or in 
+other situations that require remaining in place","ADHD",0,0,0,0,0,0,0,0,0
+"74","S74","Often runs about or climbs in situations where it is inappropriate (in older children, may look like being restless)","ADHD",0,0,0,0,0,0,0,0,0
+"75","S75","Often unable to play or take part in leisure activities quietly","ADHD",0,0,0,0,0,0,0,0,0
+"76","S76","Is often ""on the go"" acting as if ""driven by a motor"" (i.e., is unable to be or uncomfortable being still for an extended period of time, as in restaurants, meetings
+, may be experienced by others as being restless or difficult to keep up with)","ADHD",0,0,0,0,0,0,0,0,0
+"77","S77","Often blurts out an answer before a question has been completed (i.e., completes people's sentences, cannot wait for their turn in conversation)","ADHD",0,0,0,0,0,0,0,0,0
+"78","S78","Often has trouble waiting his/her turn (i.e., while waiting in line)","ADHD",0,0,0,0,0,0,0,0,0
+"79","S79","Often interrupts or intrudes on others (i.e., butts into conversations, games, activities, may start using other people's things without asking or recieving 
+permission, for older children, may intrude into or take over what others are doing","ADHD",0,0,0,0,0,0,0,0,0
+"80","S80","Severe recurrent temper outbursts manifested verbally (e.g., verbal rages) and/or behaviorally (e.g., physical aggression toward people or property) that are grossly out of proportion in intensity or duration to the situation or provocation.","DMDD",1,1,1,1,1,1,1,1,1
+"81","S81","The temper outbursts are inconsistent with developmental level.","DMDD",0,0,0,0,0,0,0,0,0
+"82","S82","The temper outbursts occur, on average, three or more times per week.","DMDD",0,0,0,0,0,0,0,0,0
+"83","S83","The mood between temper outbursts is persistently irritable or angry most of the day, nearly every day, and is observable by others (e.g., parents, teachers, peers).","DMDD",1,0,1,1,1,0,1,1,0
+"84","S84","Criteria A–D have been present for 12 or more months. Throughout that time, the individual has not had a period lasting 3 or more consecutive months without all of the symptoms in Criteria A–D.","DMDD",0,0,0,0,0,0,0,0,0
+"85","S85","Criteria A and D are present in at least two of three settings (i.e., at home, at school, with peers) and are severe in at least one of these.","DMDD",0,0,0,0,0,0,0,0,0
+"86","S86","The diagnosis should not be made for the first time before age 6 years or after age 18 years.","DMDD",0,0,0,0,0,0,0,0,0
+"87","S87","By history or observation, the age at onset of Criteria A–E is before 10 years.","DMDD",0,0,0,0,0,0,0,0,0
+"88","S88","There has never been a distinct period lasting more than 1 day during which the full symptom criteria, except duration, for a manic or hypomanic episode have been met.","DMDD",0,0,0,0,0,0,0,0,0
