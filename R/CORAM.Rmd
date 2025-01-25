@@ -9,7 +9,9 @@ output:
     toc: yes
 ---
 
-Adapted from supplemental materials from Fried (2017).
+Adapted from supplemental materials provided in Fried (2017).
+
+TODO: add DSM diagnoses overlay
 
 ```{r setup, include=TRUE, message=FALSE,warning=FALSE}
 library(dplyr)
@@ -57,6 +59,8 @@ jaccard <- function(a, b) {
 }
 ```
 
+This function computes the Jaccard index given two vectors of binary data.
+
 # Compute Overlap
 
 ```{r overlap}
@@ -84,6 +88,7 @@ colMeans(overlap, na.rm=TRUE)
 cat("Mean overlap: ", mean(colMeans(overlap, na.rm=TRUE)))
 ```
 
+
 ## Length of scale
 
 ```{r}
@@ -110,7 +115,9 @@ ggcorrplot::ggcorrplot(
 ```{r}
 dat.plot <- dat.raw  %>%
   filter(is.na(DSMDx)) %>%
-  select(-Symptom, -DSMDx) %>%
+  # select(-Symptom, -DSMDx) %>%
+  select(-S, -DSMDx) %>%
+  rename(S = Symptom) %>%
   pivot_longer(
     cols = -S,
     names_to = "Scale",
@@ -123,7 +130,7 @@ dat.plot <- dat.raw  %>%
   mutate(Type = if_else(Type == 3, 2, Type)) %>%
   mutate(Type = factor(Type, levels=c(1,2), labels=c("Scale contains compound symptom", "Scale contains specific symptom")))
 
-pal1 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+# pal1 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 scale.order <- dat.plot %>%
   group_by(Scale) %>%
@@ -157,7 +164,7 @@ p <-
            group = S,
            shape = Type,
            color = Scale,
-           rev = F
+           rev = FALSE
          )) +
   geom_point() +
   coord_polar() +
@@ -165,12 +172,12 @@ p <-
   ylab("") +
   # Generate the grid lines
   geom_hline(
-    yintercept = 1:9,
+    yintercept = 1:length(measures),
     colour = "grey80",
     linewidth = .2
   ) +
   geom_vline(
-    xintercept = 1:54,
+    xintercept = 1:length(unique(dat.plot$S)),
     colour = "grey80",
     linewidth = .2
   ) +
@@ -190,7 +197,8 @@ p <-
   scale_shape_manual(values = c(21, 19)) +
   # The angle for the symptoms and remove the default grid lines
   theme(
-    # axis.text.x = element_text(angle = 360/(2*pi)*rev( pi/2 + seq( pi/54, 2*pi-pi/54, len=54)) + c(rep(0, 26), rep(180,28))),
+    # axis.text.x = element_text(angle = 360/(2*pi)*rev( pi/2 + seq( pi/37, 2*pi-pi/37, len=37)) + c(rep(0, 26), rep(180,28)), hjust = 1),
+    axis.text.x = element_text(hjust = 0,vjust=0,angle = 0),
     axis.text.y = element_blank(),
     panel.border = element_blank(),
     axis.line = element_blank(),
@@ -202,19 +210,64 @@ p <-
   ) +
   labs(fill = "") + # remove legend title
   scale_y_continuous(
-    limits = c(-4, 9),
+    limits = c(-4, length(measures)),
     expand = c(0, 0),
     breaks = 1:length(measures),
     labels = measures
-  ) 
+  ) +
+  scale_x_discrete(guide=guide_axis(n.dodge = 5), labels = scales::label_wrap(15))
   # scale_color_manual(values = pal1)
 p
 # ggsave("../output/CORAM_Figure1.png",p,width = 60,height=40,units='cm',dpi=300,scale=.35)
 ```
 
-\newpage
+### Tile Version
 
-Symptom Key
+```{r, fig.width= 10, fig.asp = .7,fig.dpi = 300}
+p2 <-
+  ggplot(dat.plot, 
+         aes(x = Scale, y = S, group = S, fill = Type, rev = FALSE )) +
+  geom_tile(width = 1, height = 1) +
+  # scale_alpha_discrete(range=c(.5,1))+
+  scale_fill_brewer(type = 'qual',palette = 3)+
+  scale_x_discrete(guide=guide_axis(n.dodge = 2), labels=scales::label_wrap(10)) +
+  theme_classic()
+p2
+```
+
+## DSM criteria
+
+```{r}
+dat.raw  %>%
+  filter(!is.na(DSMDx)) %>%
+  select(-Symptom) %>%
+  # rename(S = Symptom) %>%
+  pivot_longer(
+    cols = !c(S, DSMDx),
+    names_to = "Scale",
+    values_to = "Type"
+  ) %>%
+  rowwise() %>%
+  mutate(ScaleNum = grep(Scale,measures)) %>%
+  ungroup() %>%
+  filter(Type > 0) %>%
+  mutate(Type = if_else(Type == 3, 2, Type)) %>%
+  mutate(Type = factor(Type, levels=c(1,2), labels=c("Scale contains compound symptom", "Scale contains specific symptom"))) %>%
+  
+  ggplot(aes(x = Scale, y = S, group = S, fill = Type, rev = FALSE )) +
+  facet_wrap(~DSMDx, ncol = 1, scales = 'free',shrink = TRUE,drop = TRUE) +
+  geom_tile(width = 1, height = 1) +
+  # scale_alpha_discrete(range=c(.5,1))+
+  scale_fill_brewer(type = 'qual')+
+  scale_x_discrete(guide=guide_axis(n.dodge = 2)) +
+  scale_y_discrete(labels = scales::label_wrap(60)) +
+  theme_classic()
+  
+  
+```
+
+
+## Symptom Key
 
 ```{r}
 dat.raw %>%
@@ -224,5 +277,26 @@ dat.raw %>%
 ```
 
 
+# Results
 
+## Properties of the symptoms
+Number of symptoms overall
+Mean overlap of symptoms across scales
+most common / least common symptoms
+
+## Properties of the scales
+Number of items on each scale
+Idiosyncratic and specific items per scale
+Overlap among scales with mean overlap
+
+## Alignment with DSM categories
+Items that could plausibly overlap each criterion
+
+# Discussion
+
+Illustrate key findings in terms of amount of overlap overall
+Identify scales that are more or less like the others
+Comment on whether results across scales would be generalizable
+Comment on specific vs. compound items and how there was vast heterogeneity in terms of the specificity of symptoms
+Comment on irritability vs. aggression in these scales?
 
