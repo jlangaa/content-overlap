@@ -37,7 +37,7 @@ dat.raw <-
   readxl::read_excel(
     "../data/Expert Symptom Coding.xlsx",
     sheet = "Symptom coding",
-    range = "A2:M90",
+    range = "A2:N90",
     col_names = TRUE
   ) %>%
   filter(!is.na(Symptom))%>%
