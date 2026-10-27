@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r dat read}
 dat.raw <-
   readxl::read_excel(
-    "../data/Expert Symptom Coding.xlsx",
+    "../data/Symptom Coding JL 20250203.xlsx",
     sheet = "Symptom coding",
     range = "A2:N90",
     col_names = TRUE
@@ -84,15 +84,27 @@ Since the diagonal is set to `NA`, the function `colMeans()` with `na.rm=TRUE` c
 
 ```{r}
 cat('Mean scale overlap\n')
-colMeans(overlap, na.rm=TRUE)
+colMeans(overlap, na.rm=TRUE) |> sort()
 cat("Mean overlap: ", mean(colMeans(overlap, na.rm=TRUE)))
 ```
-
 
 ## Length of scale
 
 ```{r}
 #NOT DONE YET
+```
+
+## Symptom count
+
+```{r}
+sx.counts <- dat.raw %>%
+  filter(is.na(DSMDx)) %>%
+  select(-S, -DSMDx) %>%
+  mutate(across(-Symptom, ~if_else(.x == 0,0,1))) %>%
+  rowwise() %>%
+  mutate(n = sum(c_across(-Symptom), na.rm=TRUE)) %>%
+  ungroup()
+sx.counts
 ```
 
 
@@ -238,12 +250,12 @@ p2
 ## DSM criteria
 
 ```{r}
-dat.raw  %>%
+d.dx.plot <- dat.raw  %>%
   filter(!is.na(DSMDx)) %>%
-  select(-Symptom) %>%
+  # select(-Symptom) %>%
   # rename(S = Symptom) %>%
   pivot_longer(
-    cols = !c(S, DSMDx),
+    cols = !c(S, DSMDx, Symptom),
     names_to = "Scale",
     values_to = "Type"
   ) %>%
@@ -252,16 +264,17 @@ dat.raw  %>%
   ungroup() %>%
   filter(Type > 0) %>%
   mutate(Type = if_else(Type == 3, 2, Type)) %>%
-  mutate(Type = factor(Type, levels=c(1,2), labels=c("Scale contains compound symptom", "Scale contains specific symptom"))) %>%
+  mutate(Type = factor(Type, levels=c(1,2), labels=c("Scale contains compound symptom", "Scale contains specific symptom")))
   
-  ggplot(aes(x = Scale, y = S, group = S, fill = Type, rev = FALSE )) +
+ggplot(d.dx.plot, aes(x = Scale, y = Symptom, group = Symptom, fill = Type, rev = FALSE )) +
   facet_wrap(~DSMDx, ncol = 1, scales = 'free',shrink = TRUE,drop = TRUE) +
   geom_tile(width = 1, height = 1) +
   # scale_alpha_discrete(range=c(.5,1))+
   scale_fill_brewer(type = 'qual')+
   scale_x_discrete(guide=guide_axis(n.dodge = 2)) +
   scale_y_discrete(labels = scales::label_wrap(60)) +
-  theme_classic()
+  theme_classic() +
+  theme(legend.position = "bottom")
   
   
 ```
